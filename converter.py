@@ -29,7 +29,7 @@ def write_file(data, file_path, output_format):
                 child = ET.SubElement(elem, key)
                 child.text = str(val)
             return elem
-#TODO: sprawdzić czy znaczik <root> jest niezbędny
+
         root = dict_to_xml('root', data)
         tree = ET.ElementTree(root)
         tree.write(file_path, encoding='utf-8', xml_declaration=True)
@@ -86,7 +86,7 @@ def main(page: ft.Page):
     def on_convert(e):
         input_path = input_file_path.current.value
         output_dir = output_dir_path.current.value
-        file_name = output_file_name.current.value  # Pobieranie wartości pola tekstowego
+        file_name = output_file_name.current.value 
         output_ext = output_format.current.value
 
         if not input_path or not output_dir or not file_name or not output_ext:
@@ -132,6 +132,3 @@ def main(page: ft.Page):
     )
 
 ft.app(target=main)
-
-
-#pyinstaller.exe --onefile --noconsole converter.py
